@@ -36,32 +36,32 @@ class User(UserMixin, db.Model):
         return f'User {self.username}'
     
     
-# class Blog(db.Model):
-#     __tablename__ = 'blogs'
+class Blog(db.Model):
+    __tablename__ = 'blogs'
 
-#     id = db.Column(db.Integer, primary_key = True)
-#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-#     description = db.Column(db.String(), index = True)
-#     title = db.Column(db.String())
-#     date_posted = db.Column(db.DateTime(250), default=datetime.utcnow)
-#     comments = db.relationship('Comment',backref='blogs',lazy='dynamic') 
+    id = db.Column(db.Integer, primary_key = True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
+    description = db.Column(db.String(), index = True)
+    title = db.Column(db.String())
+    date_posted = db.Column(db.DateTime(250), default=datetime.utcnow)
+    comments = db.relationship('Comment',backref='blogs',lazy='dynamic') 
     
     
-#     def save_blogs(self):
-#         db.session.add(self)
-#         db.session.commit()
+    def save_blogs(self):
+        db.session.add(self)
+        db.session.commit()
         
-#     def delete(self):
-#         db.session.delete(self)
-#         db.session.commit()
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
     
-#     @classmethod
-#     def get_blogs(cls):
-#         blogs = Blog.query.filter_by(blogs_id=id).all()
-#         return blogs
+    @classmethod
+    def get_blogs(cls):
+        blogs = Blog.query.filter_by(blogs_id=id).all()
+        return blogs
 
-#     def __repr__(self):
-#         return f"blogs {self.title}"
+    def __repr__(self):
+        return f"blogs {self.title}"
     
    
     
