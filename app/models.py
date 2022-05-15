@@ -67,34 +67,34 @@ class Blog(db.Model):
     
     
      
-# class Comment(db.Model):
+class Comment(db.Model):
     
-#     __tablename__ = 'comments'
+    __tablename__ = 'comments'
 
-#     id = db.Column(db.Integer,primary_key=True)
-#     comment= db.Column(db.String)
-#     blog_id = db.Column(db.Integer,db.ForeignKey('blogs.id'))
-#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-#     date_posted = db.Column(db.DateTime(250), default=datetime.utcnow)
+    id = db.Column(db.Integer,primary_key=True)
+    comment= db.Column(db.String)
+    blog_id = db.Column(db.Integer,db.ForeignKey('blogs.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    date_posted = db.Column(db.DateTime(250), default=datetime.utcnow)
     
 
-#     def save_comment(self):
-#         '''
-#         Function that saves comments
-#         '''
-#         db.session.add(self)
-#         db.session.commit()
+    def save_comment(self):
+        '''
+        Function that saves comments
+        '''
+        db.session.add(self)
+        db.session.commit()
 
-#     def delete(self):
-#         db.session.remove(self)
-#         db.session.commit()
+    def delete(self):
+        db.session.remove(self)
+        db.session.commit()
 
-#     def get_comments(cls):
-#         comment = Comment.query.all(id=id)
-#         return comment
+    def get_comments(cls):
+        comment = Comment.query.all(id=id)
+        return comment
     
-#     def __repr__(self):
-#         return f'Comment {self.comment}'
+    def __repr__(self):
+        return f'Comment {self.comment}'
     
 # class Subscriber(db.Model):
     # __tablename__='subscribers'
