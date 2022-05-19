@@ -25,17 +25,6 @@
               <a href="{{url_for('main.blog',id = blog.id)}}">
                 <p>{{blog.comments.count()}} Comments</p></a
               >
-              {% if blog.user == current_user %}
-              <a class="btn btn-info btn-sm m-1" href="">Edit Blog</a>
-              <button
-                class="btn btn-sm btn-danger m-1"
-                data-toggle="modal"
-                data-target="#modalConfirmDelete"
-                type="submit"
-              >
-                Delete
-              </button>
-              {% endif %}
             </div>
             <div class="col-md-4">
               <form
@@ -61,62 +50,7 @@
           </div>
           <hr />
         </div>
-        {% endfor %} {% for page_num in blogs.iter_pages(left_edge = 1,
-        right_edge = 1, left_current=1, right_current = 2) %} {% if page_num %}
-        {% if blogs.page == page_num %}
-        <a
-          href="{{url_for('main.posts',username = user.username,page = page_num)}}"
-          class="btn btn-sm btn-info mb-2"
-          >{{ page_num }}</a
-        >
-        {% else%}
-        <a
-          href="{{url_for('main.posts',username = user.username,page = page_num)}}"
-          class="btn btn-sm btn-outline-info mb-2"
-          >{{ page_num }}</a
-        >
-        {% endif %} {% else%} {% endif %} {% endfor %}
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="modal fade"
-    id="modalConfirmDelete"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div
-      class="modal-dialog modal-sm modal-notify modal-danger"
-      role="document"
-    >
-      <div class="modal-content text-center">
-        <div class="modal-header d-flex justify-content-center">
-          <p class="heading">Are you sure?</p>
-        </div>
-        <div class="modal-body">
-          <i class="fas fa-times fa-4x animated rotateIn"></i>
-        </div>
-        <div class="modal-footer flex-center">
-          <form
-            action="{{url_for('main.delete_post',blog_id = blogs.id)}}"
-            method="POST"
-          >
-            <input
-              type="submit"
-              class="btn btn-outline-danger btn-sm"
-              value="Yes"
-            />
-          </form>
-          <a
-            type="button"
-            class="btn btn-sm btn-danger waves-effect"
-            data-dismiss="modal"
-            >No</a
-          >
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

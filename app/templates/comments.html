@@ -9,8 +9,24 @@
     <hr />
     <h4>{{post.title}}</h4>
     <p>{{post.description}}</p>
-    <p>{{ post.date_posted.strftime('%d-%m-%Y') }}</p>
+    <small>Created by: {{ post.user}}</small><br />
+    <small>Created on: {{ post.date_posted.strftime('%d-%m-%Y') }}</small>
+    <form
+      class="form-inline"
+      action="{{url_for('main.new_comment',blog_id = post.id)}}"
+      method="POST"
+    >
+      <div class="md-form form-group">
+        <!-- <i class="fa fa-lock prefix"></i> -->
+        <label for="form92">Type your comment</label>
+        <input type="text" class="form-control" name="newcomment" required />
+      </div>
+      <div class="md-form form-group">
+        <button class="btn btn-sm btn-outline-info">Comment</button>
+      </div>
+    </form>
   </div>
+
   {% endfor %}
 </div>
 {%endblock%}

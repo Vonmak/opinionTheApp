@@ -1,5 +1,4 @@
-{% extends 'base.html'%} {% import 'macros.html' as macro%}{% block content %}{%
-block styles%} {{ super() }}
+{% extends 'base.html'%}{% block content %}{% block styles%} {{ super() }}
 
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" />
 {% endblock %}
@@ -8,13 +7,17 @@ block styles%} {{ super() }}
   {% if current_user.is_authenticated %}
 
   <a class="btn btn-sm btn-info" id="ref" href="{{url_for('main.new_blog')}}"
-    >Post a Blog</a
+    >Write a Blog</a
   >
 
   <a href="{{url_for('main.posts',username = current_user.username)}}"
     ><span>View <strong>{{current_user.username}}</strong> Blogs</span>
   </a>
+  <div ="container image main1">
+    <img src="{{url_for('static', filename='lines.jpeg')}}" />
 
+    <img src="{{url_for('static', filename='mercy.jpeg')}}" />
+  </div>
   {% else %}
 
   <a href="{{url_for('main.view')}}">View all Blogs </a>
@@ -53,6 +56,8 @@ block styles%} {{ super() }}
     {{ message }}
   </div>
   {% endfor %}
+  <div class="col-md-2">
+  <h4>Subscribe</h4>
   <form
     class="form-inline ml-2"
     action="{{url_for('main.subscribe')}}"
@@ -66,5 +71,6 @@ block styles%} {{ super() }}
       <button class="btn btn-sm btn-outline-info" id="subs">Subscribe</button>
     </div>
   </form>
+  </div>
 </div>
 {% endif %} {% endblock %}
