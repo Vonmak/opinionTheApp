@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Akronim&family=Creepster&family=Diplomata+SC&family=Roboto:wght@300;400;500;700;900&family=Rubik+Moonrocks&display=swap');
+body {
+    background: linear-gradient(#91a4b9, #3e5a84, #001d3d);
+    height: 100vh;
+    /* overflow: scroll; */
+}
+
+.main {
+    margin-bottom: 100px;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+}
+
+h1 {
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Creepster', cursive;
+    background: linear-gradient(#006daa, #0c0d0e);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.display {
+    padding: 20px;
+    color: #fff
+}
+
+p {
+    font-family: 'Bellefair', serif;
+    font-size: 20px;
+    color: #fff
+}
+
+a {
+    color: #006daa;
+    font-weight: bolder;
+}
+
+.new {
+    font-size: xx-large;
+}
+
+.image {
+    height: 50vh;
+    width: 500px;
+    margin: 20px;
+}
+
+img {
+    height: 50vh;
+    width: 500px;
+    border: 3px solid transparent;
+    border-radius: 40px;
+}
+
+.form {
+    color: #fff
+}
+
+.img {
+    height: 100px;
+    width: 100px;
+}
+
+h3 {
+    font-family: 'Diplomata SC', cursive;
+    background: linear-gradient(#006daa, #a100f2, #f20089);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+h4 {
+    font-size: 30px;
+    font-family: 'Rubik Moonrocks', cursive;
+    background: linear-gradient(#006daa, #fff);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+footer {
+    color: #a100f2;
+}
+
+h4>span {
+    color: #006daa
+}
+
+.two {
+    background: linear-gradient(#129bea, #a100f2, #321d29);
+    height: 80vh;
+    overflow: scroll;
+}
