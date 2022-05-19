@@ -14,7 +14,7 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    title = 'Home - The Best Pitching Website'
+    title = 'Home - The Best Blog Website'
     blogs = Blog.query.filter_by().first()
     quotes = get_quotes()
     return render_template('index.html',title = title, blogs=blogs, quote=quotes)
@@ -26,7 +26,6 @@ def view():
     posts = Blog.query.all()
     
     return render_template('comments.html', posts=posts)
-
 
 @main.route('/blogs/new/', methods = ['GET','POST'])
 # @login_required
@@ -128,7 +127,7 @@ def posts(username):
     user = User.query.filter_by(username=username).first()
     page = request.args.get('page',1, type = int )
     # blogs= Blog.get_blog(blog_id)
-    blogs = Blog.query.filter_by(user=user).order_by(Blog.date_posted.desc())
+    blogs = Blog.query.filter_by(user=user).order_by(Blog.date_posted.desc()).paginate(page = page, per_page = 4)
     return render_template('user.html',blogs=blogs,user = user)
  
 
