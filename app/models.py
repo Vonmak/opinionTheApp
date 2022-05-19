@@ -44,10 +44,10 @@ class Blog(db.Model):
     description = db.Column(db.String(), index = True)
     title = db.Column(db.String())
     date_posted = db.Column(db.DateTime(250), default=datetime.utcnow)
-    comments = db.relationship('Comment',backref='blogs',lazy='dynamic') 
+    comments = db.relationship('Comment',backref='blog',lazy='dynamic') 
     
     
-    def save_blogs(self):
+    def save_blog(self):
         db.session.add(self)
         db.session.commit()
         
@@ -55,13 +55,13 @@ class Blog(db.Model):
         db.session.delete(self)
         db.session.commit()
     
-    @classmethod
-    def get_blogs(cls):
-        blogs = Blog.query.filter_by(blogs_id=id).all()
-        return blogs
+  
+    def get_blog(id):
+        blog = Blog.query.filter_by(blog_id=id).first()
+        return blog
 
     def __repr__(self):
-        return f"blogs {self.title}"
+        return f"blog {self.title}"
     
    
     
