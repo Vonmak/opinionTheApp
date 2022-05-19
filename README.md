@@ -9,7 +9,7 @@ Also it allows users to comment on the blogs that has been posted by a writer.
 It also allows a person to subscribed to recieve email everytime a new blog is posted by a writer.
 
 ## Live Link
-[View Site]()
+[View Site](https://opiniontheapp.herokuapp.com/)
 
 ## Screenshots
 
