@@ -22,55 +22,77 @@
 
   <a href="{{url_for('main.view')}}">View all Blogs </a>
 
-  <p>
-    By <span>{{blogs.user.username}}</span> on
-    {{blogs.date_posted.strftime('%d-%m-%Y')}}
-  </p>
-  <h3>
-    <a href="{{url_for('main.blog',id = blogs.id)}}">{{blogs.title}}</a>
-  </h3>
-  <p>{{blogs.description}}</p>
-  <p>{{blogs.comments.count()}} Comments</p>
+  <div ="container-fluid">
+    <div class="row main">
+      <div class="col-md-5">
+        <p>
+          By <span>{{blogs.user.username}}</span> on
+          {{blogs.date_posted.strftime('%d-%m-%Y')}}
+        </p>
+        <h3>
+          <a href="{{url_for('main.blog',id = blogs.id)}}">{{blogs.title}}</a>
+        </h3>
+        <p>{{blogs.description}}</p>
+        <p>{{blogs.comments.count()}} Comments</p>
 
-  <form
-    class="form-inline"
-    action="{{url_for('main.new_comment',blog_id = blogs.id)}}"
-    method="POST"
-  >
-    <div class="md-form form-group">
-      <label for="form92">Type your comment</label>
-      <input type="text" class="form-control" name="newcomment" required />
+        <form
+          class="form-inline"
+          action="{{url_for('main.new_comment',blog_id = blogs.id)}}"
+          method="POST"
+        >
+          <div class="md-form form-group">
+            <label for="form92">Type your comment</label>
+            <input
+              type="text"
+              class="form-control"
+              name="newcomment"
+              required
+            />
+          </div>
+          <div class="md-form form-group">
+            <button class="btn btn-sm btn-outline-info">Comment</button>
+          </div>
+        </form>
+      </div>
+        <div class="col-md-5 quote">
+          <h4>Quotes</h4>
+          <h4 style="color: rgb(3, 3, 3)">{{quote.author}}</h4>
+          <p class="card-text">{{quote.quote}}</p>
+        </div>
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">
+            &times;
+          </button>
+          {{ message }}
+        </div>
+        {% endfor %}
+
+        <div class="col-md-2 subscribe">
+          <h4>Subscribe</h4>
+          <form
+            class="form-inline ml-2"
+            action="{{url_for('main.subscribe')}}"
+            method="POST"
+          >
+            <div class="md-form form-group">
+              <label class="white-color">Email Address...</label>
+              <input
+                type="email"
+                class="form-control"
+                name="subscriber"
+                required
+              />
+            </div>
+            <div class="md-form form-group">
+              <button class="btn btn-sm btn-outline-info" id="subs">
+                Subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="md-form form-group">
-      <button class="btn btn-sm btn-outline-info">Comment</button>
-    </div>
-  </form>
-
-  <h4>Quotes</h4>
-  <h4 style="color: rgb(3, 3, 3)">{{quote.author}}</h4>
-  <p class="card-text">{{quote.quote}}</p>
-
-  {% for message in get_flashed_messages() %}
-  <div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    {{ message }}
   </div>
-  {% endfor %}
-  <div class="col-md-2">
-  <h4>Subscribe</h4>
-  <form
-    class="form-inline ml-2"
-    action="{{url_for('main.subscribe')}}"
-    method="POST"
-  >
-    <div class="md-form form-group">
-      <label class="white-color">Email Address...</label>
-      <input type="email" class="form-control" name="subscriber" required />
-    </div>
-    <div class="md-form form-group">
-      <button class="btn btn-sm btn-outline-info" id="subs">Subscribe</button>
-    </div>
-  </form>
-  </div>
+  {% endif %} {% endblock %}
 </div>
-{% endif %} {% endblock %}
