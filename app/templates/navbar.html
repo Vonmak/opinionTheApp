@@ -1,0 +1,46 @@
+<div class="container">
+  <ul class="nav navbar-nav" style="margin-left: 10px">
+    <li
+      style="
+        background: linear-gradient(#006daa, #fff, #006daa);
+        border-radius: 10px;
+      "
+    >
+      <a href="/" style="color: #006daa; font-weight: bolder">Home</a>
+    </li>
+  </ul>
+
+  <ul
+    class="nav navbar-nav navbar-right"
+    style="
+      margin-right: 10px;
+      background: linear-gradient(#006daa, #fff, #006daa);
+      border-radius: 10px;
+    "
+  >
+    {% if current_user.is_authenticated %}
+    <li>
+      <a
+        href="{{url_for('main.profile',uname=current_user.username)}}"
+        style="color: #006daa; font-weight: bolder"
+        >{{current_user.username}}</a
+      >
+    </li>
+    <li>
+      <a
+        href="{{url_for('auth.logout')}}"
+        style="color: #006daa; font-weight: bolder"
+        >Log out</a
+      >
+    </li>
+    {% else %}
+    <li>
+      <a
+        href="{{url_for('auth.login')}}"
+        style="color: #006daa; font-weight: bolder"
+        >Log in</a
+      >
+    </li>
+    {%endif%}
+  </ul>
+</div>
