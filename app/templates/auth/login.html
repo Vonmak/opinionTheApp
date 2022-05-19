@@ -1,0 +1,50 @@
+{% import 'bootstrap/wtf.html' as wtf%}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    {% extends 'bootstrap/base.html'%} {%block content%}{% block styles%} {{
+    super() }}
+
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='css/index.css')}}"
+    />
+    {% endblock %}
+
+    <div class="container main1">
+      <div class="row main">
+        <div class="col-md-4 image">
+          <img src="{{url_for('static', filename='lap.jpeg')}}" />
+        </div>
+
+        <div class="col-md-8 form">
+          <!-- Flash message -->
+          {% for message in get_flashed_messages() %}
+          <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">
+              &times;
+            </button>
+            {{ message }}
+          </div>
+
+          {% endfor %}
+          <!-- Login form  -->
+          <h4>LOG-IN</h4>
+          <hr />
+          {{ wtf.quick_form(login_form) }}
+
+          <p>
+            Don't have an account?
+            <a href="{{url_for('auth.register')}}">Sign up here</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endblock%}
+  </body>
+</html>
