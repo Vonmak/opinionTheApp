@@ -74,8 +74,8 @@ h3 {
 
 h4 {
     font-size: 30px;
-    font-family: 'Rubik Moonrocks', cursive;
-    background: linear-gradient(#006daa, #fff);
+    font-family: 'Akronim', cursive;
+    background: linear-gradient(#2d057d, #3e0252);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
@@ -92,4 +92,12 @@ h4>span {
     background: linear-gradient(#129bea, #a100f2, #321d29);
     height: 80vh;
     overflow: scroll;
+}
+
+.all {
+    overflow: scroll;
+}
+
+.main1 {
+    display: flex;
 }
