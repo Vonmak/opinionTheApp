@@ -25,19 +25,20 @@
   <div ="container-fluid">
     <div class="row main">
       <div class="col-md-5">
+      
         <p>
-          By <span>{{blogs.user.username}}</span> on
-          {{blogs.date_posted.strftime('%d-%m-%Y')}}
+          By <span>Vonmak</span> on
+          2022-05-17
         </p>
         <h3>
-          <a href="{{url_for('main.blog',id = blogs.id)}}">{{blogs.title}}</a>
+          <a href="#">Honour</a>
         </h3>
-        <p>{{blogs.description}}</p>
-        <p>{{blogs.comments.count()}} Comments</p>
+        <p>Its been a great Honour working with you TM Brian Ng'eno</p>
+        <p>5 Comments</p>
 
         <form
           class="form-inline"
-          action="{{url_for('main.new_comment',blog_id = blogs.id)}}"
+          action=""
           method="POST"
         >
           <div class="md-form form-group">
